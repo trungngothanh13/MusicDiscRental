@@ -1,0 +1,50 @@
+MusicDiscRental/
+├── MusicDiscRental.Database/
+│   ├── Scripts/
+│   │   └── Disc_Rental.sql
+│   ├── Connection/
+│   │   ├── DatabaseConnection.cs
+│   │   └── ConnectionStrings.config
+│   └── Repositories/
+│       ├── DiscRepository.cs
+│       ├── MemberRepository.cs
+│       └── RentalRepository.cs
+│
+├── MusicDiscRental.Models/
+│   ├── Disc.cs
+│   ├── Member.cs
+│   └── Rental.cs
+│
+├── MusicDiscRental.ViewModels/
+│   ├── Base/
+│   │   └── ViewModelBase.cs
+│   ├── DiscViewModel.cs
+│   ├── MemberViewModel.cs
+│   ├── RentalViewModel.cs
+│   └── MainViewModel.cs
+│
+├── MusicDiscRental.Services/
+│   ├── DialogService.cs
+│   ├── NavigationService.cs
+│   └── OracleDataService.cs
+│
+├── MusicDiscRental.UI/
+│   ├── App.xaml
+│   ├── App.xaml.cs
+│   ├── MainWindow.xaml
+│   ├── MainWindow.xaml.cs
+│   ├── Views/
+│   │   ├── DiscsView.xaml
+│   │   ├── DiscsView.xaml.cs
+│   │   ├── MembersView.xaml
+│   │   ├── MembersView.xaml.cs
+│   │   ├── RentalDashboardView.xaml
+│   │   └── RentalDashboardView.xaml.cs
+│   └── Converters/
+│       └── BooleanToVisibilityConverter.cs
+│
+└── MusicDiscRental.Common/
+    ├── Commands/
+    │   └── RelayCommand.cs
+    └── Helpers/
+        └── ValidationHelper.cs
