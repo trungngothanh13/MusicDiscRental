@@ -273,31 +273,3 @@ DROP SEQUENCE member_seq;
 CREATE SEQUENCE disc_seq START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE member_seq START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE rental_seq START WITH 1 INCREMENT BY 1;
-
--- SQL Script to view all rentals
-SELECT 
-    m.member_id,
-    m.name AS member_name,
-    d.disc_id,
-    d.title AS disc_title,
-    d.artist,
-    r.rental_date,
-    r.return_date,
-    CASE 
-        WHEN r.return_date IS NULL THEN 'Currently Rented'
-        ELSE 'Returned'
-    END AS status
-FROM 
-    Rentals r
-JOIN 
-    Members m ON r.member_id = m.member_id
-JOIN 
-    Discs d ON r.disc_id = d.disc_id
-ORDER BY 
-    m.name, r.rental_date DESC;
-
-
-UPDATE Discs
-SET available_stock = available_stock + 1, 
-    total_stock = total_stock + 1
-WHERE disc_id = 1;
