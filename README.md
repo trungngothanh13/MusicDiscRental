@@ -26,19 +26,22 @@ This application provides a complete rental management system for music discs wi
 - Oracle.ManagedDataAccess.Client NuGet package
 
 ## Database Setup
-
-1. **Run the SQL script** (`Disc_Rental.sql`) in your Oracle database to create:
+1. **Create a new User in Oracle**
+   - Open SQL Plus
+   - `CREATE USER C##MUSICADMIN identified by music_password;`
+     `grant Connect, Resource, UNLIMITED TABLESPACE to C##MUSICADMIN;`
+3. **Run the SQL script** (`Disc_Rental.sql`) in your Oracle database to create:
    - Tables: `Discs`, `Members`, `Rentals`
    - Sequences for auto-incrementing IDs
    - Stored procedures: `RentDisc`, `ReturnDisc`
    - Functions: `GetActiveRentals`
    - Sample test data
 
-2. **Update connection string** in `App.config`:
+4. **Connection string** in `App.config`:
    ```xml
    <connectionStrings>
      <add name="MusicDiscRentalConnection"
-          connectionString="User Id=C##MUSICADMIN;Password=your_password;Data Source=localhost:1521/orcl;"
+          connectionString="User Id=C##MUSICADMIN;Password=music_password;Data Source=localhost:1521/orcl;"
           providerName="Oracle.ManagedDataAccess.Client" />
    </connectionStrings>
    ```
