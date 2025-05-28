@@ -64,6 +64,7 @@ namespace MusicDiscRental.Models
                 {
                     _rentalDate = value;
                     OnPropertyChanged();
+                    OnPropertyChanged(nameof(DaysRented));
                 }
             }
         }
@@ -79,6 +80,7 @@ namespace MusicDiscRental.Models
                     OnPropertyChanged();
                     OnPropertyChanged(nameof(IsReturned));
                     OnPropertyChanged(nameof(Status));
+                    OnPropertyChanged(nameof(DaysRented));
                 }
             }
         }
@@ -112,6 +114,15 @@ namespace MusicDiscRental.Models
         public bool IsReturned => ReturnDate.HasValue;
 
         public string Status => IsReturned ? "Returned" : "Currently Rented";
+
+        public int DaysRented
+        {
+            get
+            {
+                var endDate = ReturnDate ?? DateTime.Now;
+                return (int)(endDate - RentalDate).TotalDays;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

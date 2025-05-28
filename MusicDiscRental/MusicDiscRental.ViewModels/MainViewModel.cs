@@ -61,6 +61,7 @@ namespace MusicDiscRental.ViewModels
             // Create view models
             DiscViewModel = new DiscViewModel(discRepository);
             RentalViewModel = new RentalViewModel(rentalRepository, discRepository, memberRepository);
+            MemberDetailsViewModel = new MemberDetailsViewModel(memberRepository);
 
             // Set initial view
             CurrentViewModel = RentalViewModel;
@@ -68,6 +69,7 @@ namespace MusicDiscRental.ViewModels
             // Commands
             ShowDiscsCommand = new RelayCommand(_ => ShowDiscs());
             ShowRentalsCommand = new RelayCommand(_ => ShowRentals());
+            ShowMemberDetailsCommand = new RelayCommand(_ => ShowMemberDetails());
         }
 
         public ViewModelBase CurrentViewModel
@@ -100,9 +102,11 @@ namespace MusicDiscRental.ViewModels
 
         public DiscViewModel DiscViewModel { get; }
         public RentalViewModel RentalViewModel { get; }
+        public MemberDetailsViewModel MemberDetailsViewModel { get; }
 
         public ICommand ShowDiscsCommand { get; }
         public ICommand ShowRentalsCommand { get; }
+        public ICommand ShowMemberDetailsCommand { get; }
 
         private void ShowDiscs()
         {
@@ -111,7 +115,12 @@ namespace MusicDiscRental.ViewModels
 
         private void ShowRentals()
         {
-            CurrentViewModel = RentalViewModel; 
+            CurrentViewModel = RentalViewModel;
+        }
+
+        private void ShowMemberDetails()
+        {
+            CurrentViewModel = MemberDetailsViewModel;
         }
     }
 }

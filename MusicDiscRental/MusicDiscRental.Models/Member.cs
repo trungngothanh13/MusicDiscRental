@@ -8,6 +8,7 @@ namespace MusicDiscRental.Models
     {
         private int _memberId;
         private string _name;
+        private string _phoneNumber;
         private DateTime _joinDate;
 
         public int MemberId
@@ -31,6 +32,19 @@ namespace MusicDiscRental.Models
                 if (_name != value)
                 {
                     _name = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string PhoneNumber
+        {
+            get => _phoneNumber;
+            set
+            {
+                if (_phoneNumber != value)
+                {
+                    _phoneNumber = value;
                     OnPropertyChanged();
                 }
             }

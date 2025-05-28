@@ -46,12 +46,13 @@ namespace MusicDiscRental.Database.Repositories
             var parameters = new Dictionary<string, object>
             {
                 { "name", member.Name },
+                { "phone_number", member.PhoneNumber },
                 { "join_date", member.JoinDate }
             };
 
             return await _dbService.ExecuteNonQueryAsync(
-                "INSERT INTO Members (member_id, name, join_date) " +
-                "VALUES (member_seq.NEXTVAL, :name, :join_date)",
+                "INSERT INTO Members (member_id, name, phone_number, join_date) " +
+                "VALUES (member_seq.NEXTVAL, :name, :phone_number, :join_date)",
                 parameters);
         }
 
@@ -61,11 +62,12 @@ namespace MusicDiscRental.Database.Repositories
             {
                 { "member_id", member.MemberId },
                 { "name", member.Name },
+                { "phone_number", member.PhoneNumber },
                 { "join_date", member.JoinDate }
             };
 
             return await _dbService.ExecuteNonQueryAsync(
-                "UPDATE Members SET name = :name, join_date = :join_date " +
+                "UPDATE Members SET name = :name, phone_number = :phone_number, join_date = :join_date " +
                 "WHERE member_id = :member_id",
                 parameters);
         }
@@ -84,6 +86,7 @@ namespace MusicDiscRental.Database.Repositories
             {
                 MemberId = Convert.ToInt32(row["member_id"]),
                 Name = row["name"].ToString(),
+                PhoneNumber = row["phone_number"] != DBNull.Value ? row["phone_number"].ToString() : null,
                 JoinDate = Convert.ToDateTime(row["join_date"])
             };
         }

@@ -104,13 +104,13 @@
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding RentalId}" Width="50"/>
-                    <DataGridTextColumn Header="Member" Binding="{Binding Member.Name}" Width="*"/>
-                    <DataGridTextColumn Header="Disc" Binding="{Binding Disc.Title}" Width="*"/>
-                    <DataGridTextColumn Header="Artist" Binding="{Binding Disc.Artist}" Width="*"/>
-                    <DataGridTextColumn Header="Rental Date" Binding="{Binding RentalDate, StringFormat=\{0:MM/dd/yyyy\}}" Width="100"/>
-                    <DataGridTextColumn Header="Return Date" Binding="{Binding ReturnDate, StringFormat=\{0:MM/dd/yyyy\}}" Width="100"/>
+                    <DataGridTextColumn Header="Member" Binding="{Binding Member.Name}" Width="2.5*"/>
+                    <DataGridTextColumn Header="Disc" Binding="{Binding Disc.Title}" Width="4*"/>
+                    <DataGridTextColumn Header="Artist" Binding="{Binding Disc.Artist}" Width="2.5*"/>
+                    <DataGridTextColumn Header="Rental Date" Binding="{Binding RentalDate, StringFormat=\{0:MM/dd/yyyy\}}" Width="1.6*"/>
+                    <DataGridTextColumn Header="Return Date" Binding="{Binding ReturnDate, StringFormat=\{0:MM/dd/yyyy\}}" Width="1.6*"/>
 
-                    <DataGridTemplateColumn Header="Status" Width="120">
+                    <DataGridTemplateColumn Header="Status" Width="110">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Status}"

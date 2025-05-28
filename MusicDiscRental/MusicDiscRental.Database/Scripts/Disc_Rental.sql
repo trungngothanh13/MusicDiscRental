@@ -13,6 +13,7 @@ CREATE TABLE Discs (
 CREATE TABLE Members (
     member_id NUMBER PRIMARY KEY,
     name VARCHAR2(100) NOT NULL,
+    phone_number VARCHAR2(15),
     join_date DATE DEFAULT SYSDATE NOT NULL
 );
 
@@ -195,17 +196,17 @@ END;
 -- Insert test members and additional mock data
 BEGIN
     -- Test members
-    INSERT INTO Members (member_id, name, join_date)
-    VALUES (member_seq.NEXTVAL, 'John Doe', SYSDATE - 30);
+    INSERT INTO Members (member_id, name, phone_number, join_date)
+    VALUES (member_seq.NEXTVAL, 'John Doe', '083999888', SYSDATE - 30);
     
-    INSERT INTO Members (member_id, name, join_date)
-    VALUES (member_seq.NEXTVAL, 'Jane Smith', SYSDATE - 15);
+    INSERT INTO Members (member_id, name, phone_number, join_date)
+    VALUES (member_seq.NEXTVAL, 'Jane Smith', '082787989', SYSDATE - 15);
     
-    INSERT INTO Members (member_id, name, join_date)
-    VALUES (member_seq.NEXTVAL, 'Alice Johnson', SYSDATE - 20);
+    INSERT INTO Members (member_id, name, phone_number, join_date)
+    VALUES (member_seq.NEXTVAL, 'Alice Johnson', '0997896728', SYSDATE - 20);
     
-    INSERT INTO Members (member_id, name, join_date)
-    VALUES (member_seq.NEXTVAL, 'Bob Brown', SYSDATE - 10);
+    INSERT INTO Members (member_id, name, phone_number, join_date)
+    VALUES (member_seq.NEXTVAL, 'Bob Brown', '0363777464', SYSDATE - 10);
     
     -- Test discs
     INSERT INTO Discs (disc_id, title, artist, genre, total_stock, available_stock)
